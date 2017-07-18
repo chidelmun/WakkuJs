@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- This project is based on Bootstrap -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<title>Declarative Forms</title>
+<title>Wakku Forms</title>
 <body>
 <div class="container">
 	<div class="row jumbotron">
-	<h1>Declarative Forms</h1>
-	<p><code> Create reusable login forms by giving it a class of .formlogin. </code></p>
+	<h1>Wakku Forms</h1>
+	<p><code> Create reusable forms by giving it a class of .wakkuform and a data-form-type attribute of login, register or join. </code></p>
 		<div class="col-md-4">
-			<form  class="formlogin" data-form-type="login">
+			<form  class="wakkuform" data-form-type="login">
 			</form>
 		</div>
 		<div class="col-md-4">
-			<form  class="formlogin" data-form-type="login">
+			<form  class="wakkuform" data-form-type="login">
+			</form>
+		</div>
+		<div class="col-md-4">
+			<form  class="wakkuform" data-form-type="join">
 		
 			</form>
-		</div>
-		<div class="col-md-4">
-			
 		</div>
 	</div>
 	
@@ -35,7 +37,7 @@
 				var username = document.createElement("input");
 				username.setAttribute('placeholder', 'Username or Email');
 				var password = document.createElement("input");
-				password.setAttribute('placeholder', 'Your password')
+				password.setAttribute('placeholder', 'Your password');
 				var button = document.createElement("button");
 				button.setAttribute('type', 'submit');
 				button.setAttribute('class', 'btn btn-success');
@@ -45,10 +47,38 @@
 				forms_no[i].appendChild(button);
 			}
 
-		var reg_no  = document.getElementsByClassName('register');
-			for(var i=0 ; i< reg_no.length ; ++i){
-				var inputfield = document.createElement("textarea");
-				reg_no[i].appendChild(inputfield);
+		var forms  = document.getElementsByClassName('wakkuform');
+			for(var i=0 ; i< forms.length ; ++i){
+				if (forms[i].getAttribute("data-form-type") == "login" || "signin") {
+					var username = document.createElement("input");
+					username.setAttribute('placeholder', 'Username or Email');
+					var password = document.createElement("input");
+					password.setAttribute('placeholder', 'Your password');
+					var button = document.createElement("button");
+					button.setAttribute('type', 'submit');
+					button.setAttribute('class', 'btn btn-success');
+					button.innerHTML = "Login";
+					forms[i].appendChild(username);
+					forms[i].appendChild(password);
+					forms[i].appendChild(button);
+				}else if (forms[i].getAttribute('data-form-type') == "register" || "join" || "signup") {
+					var username = document.createElement("input");
+					username.setAttribute('placeholder', 'Username or Email');
+					var password = document.createElement("input");
+					password.setAttribute('placeholder', 'Your password');
+					var password_confirmation = document.createElement("input");
+					password_confirmation.setAttribute('placeholder', 'Confirm Your password');
+
+					var button = document.createElement("button");
+					button.setAttribute('type', 'submit');
+					button.setAttribute('class', 'btn btn-success');
+					button.innerHTML = "Login";
+					forms[i].appendChild(username);
+					forms[i].appendChild(password);
+					forms[i].appendChild(password_confirmation);
+					forms[i].appendChild(button);
+
+				}
 				
 			}		
 		 
