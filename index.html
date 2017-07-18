@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>Species</h1>
+<p>Click on a species to see what type it is:</p>
+
+	<form  id="formid" data-form-type="login">	
+	</form>
+
+	<form id="register" class="formclass" data-form-type="login">
+		
+	</form>
+
+	<form  class="formclass" data-form-type="login">
+		
+	</form>
+
+	<form  class="formclass" data-form-type="login">
+		
+	</form>
+
+
+
+	
+
+<script type="text/javascript">
+	
+	function createForm(){
+		alert(document.getElementById('formid').getAttribute('data-form-type'));
+		var inputfield = document.createElement("input");
+		var element = document.getElementById("formid");
+		element.appendChild(inputfield);
+
+		
+		var forms_no = document.getElementsByClassName('formclass');
+			for(var i=0 ; i< forms_no.length ; ++i){
+				var inputfield = document.createElement("input");
+				forms_no[i].appendChild(inputfield);
+				// alert(forms_no[i].getAttribute('data-form-type'));
+			}
+		 
+	}
+	createForm();
+</script>
+</body>
+</html>
+
