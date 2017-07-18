@@ -9,3 +9,11 @@ A minimalistic Javascript Framework for building declarative and reusable UI com
  Include the following in the Body tag of your HTML
 
  	<script src="src/wakkuforms.js" type="text/javascript"></script>
+
+Create Bootstrap forms as follows
+
+	<form  class="wakkuform" data-form-type="login">
+	</form>
+
+	<form  class="wakkuform" data-form-type="register">
+	</form>
