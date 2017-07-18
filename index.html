@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+<title>Declarative Forms</title>
 <body>
-
-<h1>Species</h1>
-<p>Click on a species to see what type it is:</p>
-
-	<form  id="formid" data-form-type="login">	
-	</form>
-
-	<form id="register" class="formclass" data-form-type="login">
+<div class="container">
+	<div class="row jumbotron">
+	<h1>Declarative Forms</h1>
+	<p><code> Create reusable login forms by giving it a class of .formlogin. </code></p>
+		<div class="col-md-4">
+			<form  class="formlogin" data-form-type="login">
 		
-	</form>
-
-	<form  class="formclass" data-form-type="login">
+			</form>
+		</div>
+		<div class="col-md-4">
+			<form  class="formlogin" data-form-type="login">
 		
-	</form>
+			</form>
+		</div>
+		<div class="col-md-4">
+			
+		</div>
+	</div>
+	
+</div>
 
-	<form  class="formclass" data-form-type="login">
-		
-	</form>
+
+	
+
+	
+
+	
 
 
 
@@ -28,22 +39,34 @@
 
 <script type="text/javascript">
 	
-	function createForm(){
-		alert(document.getElementById('formid').getAttribute('data-form-type'));
-		var inputfield = document.createElement("input");
-		var element = document.getElementById("formid");
-		element.appendChild(inputfield);
+	function createForms(){
+		
 
 		
-		var forms_no = document.getElementsByClassName('formclass');
+		var forms_no = document.getElementsByClassName('formlogin');
 			for(var i=0 ; i< forms_no.length ; ++i){
-				var inputfield = document.createElement("input");
-				forms_no[i].appendChild(inputfield);
-				// alert(forms_no[i].getAttribute('data-form-type'));
+				var username = document.createElement("input");
+				username.setAttribute('placeholder', 'Username or Email');
+				var password = document.createElement("input");
+				password.setAttribute('placeholder', 'Your password')
+				var button = document.createElement("button");
+				button.setAttribute('type', 'submit');
+				button.innerHTML = "Login";
+				forms_no[i].appendChild(username);
+				forms_no[i].appendChild(password);
+				forms_no[i].appendChild(button);
+				
 			}
+
+		var reg_no  = document.getElementsByClassName('register');
+			for(var i=0 ; i< reg_no.length ; ++i){
+				var inputfield = document.createElement("textarea");
+				reg_no[i].appendChild(inputfield);
+				
+			}		
 		 
 	}
-	createForm();
+	createForms();
 </script>
 </body>
 </html>
